@@ -11,7 +11,7 @@ const SIgnUp = () => {
           <h1 className='mt-8 text-4xl font-serif'><span className="text-[#2eabff] capitalize">find</span>My<span className="text-[#2eabff] capitalize inline-block">tech</span></h1>
           <h1 className='text-5xl font-[700] font-Poppins text-center'>welcome back</h1>
           <p className="text-2xl font text-center">login to continue your journey with us</p>
-          <button className='border-btn w-fit p-2 px-8  cursor-pointer'>Sign Up</button>
+          <button className='border-btn w-fit p-2 px-8  cursor-pointer'>Sign in</button>
           <div className="h-1/4"></div>
         </div>
         <div className="flex h-2/3 w-1/3 bg-black shadow-[0_0_15px_black]">
@@ -61,7 +61,7 @@ const SIgnUp = () => {
               </div>
 
             </div>
-            <input type="submit" name='Sign up' className='mt-10 w-fit bg-[#717171] rounded-md p-1 px-20 hover:cursor-pointer ' value="Sign up" />
+            <input type="submit" name='Sign up' className='mt-10 w-fit bg-[#717171] rounded-md p-1 px-20 hover:cursor-pointer ' value="Sign in" />
 
 
           </form>

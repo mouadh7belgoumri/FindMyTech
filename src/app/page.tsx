@@ -3,6 +3,7 @@ import NavBar from './components/navBar'
 import Hero from './components/Hero'
 // import Footer from './components/Footer'
 import SignUp from './components/SignUp'
+import SignIn from './components/SignIn'
 
 
 const Home = () => {
@@ -11,7 +12,8 @@ const Home = () => {
       {/* <NavBar />
       <Hero/> */}
       {/* <Footer/> */}
-      <SignUp />
+      {/* <SignUp /> */}
+      <SignIn />
     </div>
   )
 }
