@@ -11,8 +11,7 @@
 .font-Poppins {
     font-family: Poppins, sans-serif;
 }
-.arrow-btn {
-    color: #f8f8ff;
-    text-shadow: 0 0 5px #f8f8ff, 0 0 10px #f8f8ff;
+.arrow-btn:hover {
+    transition: all 0.3s ease-in-out;
     
 }

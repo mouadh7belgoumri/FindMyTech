@@ -6,7 +6,7 @@ const SIgnUp = () => {
       <div className="h-screen flex justify-center items-center content-center w-full">
         <div className="flex h-2/3 w-1/3 flex-col content-center items-center justify-between bg-[#717171] ">
           <div className="flex w-full justify-start arrow-btn">
-            <IoArrowBackCircleOutline className='text-3xl cursor-pointer arrow-btn m-2' />
+            <IoArrowBackCircleOutline className='text-3xl cursor-pointer hover:text-white hover:drop-shadow-[0_0_10px_white] arrow-btn m-2' />
           </div>
           <h1 className='mt-8 text-4xl font-serif'><span className="text-[#2eabff] capitalize">find</span>My<span className="text-[#2eabff] capitalize inline-block">tech</span></h1>
           <h1 className='text-5xl font-[700] font-Poppins'>welcome back</h1>
