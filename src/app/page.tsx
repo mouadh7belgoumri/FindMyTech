@@ -12,8 +12,8 @@ const Home = () => {
       {/* <NavBar />
       <Hero/> */}
       {/* <Footer/> */}
-      {/* <SignUp /> */}
-      <SignIn/>
+      <SignUp />
+      {/* <SignIn/> */}
     </div>
   )
 }

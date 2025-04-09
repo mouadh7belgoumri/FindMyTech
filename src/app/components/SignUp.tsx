@@ -34,7 +34,7 @@ const SIgnUp = () => {
               </div>
             </div>
             <div className="flex justify-center content-center w-3/4 mt-5 ">
-              <div className="flex flex-col items-center content-center justify-center">
+              {/* <div className="flex flex-col items-center content-center justify-center">
                 <div className="flex justify-start w-35 ml-1">
                   <label htmlFor="role" className='text-[#D9D9D9]'>register as</label>
                 </div>
@@ -42,7 +42,7 @@ const SIgnUp = () => {
                   <option value="buyer">buyer</option>
                   <option value="seller">seller</option>
                 </select>
-              </div>
+              </div> */}
             </div>
             <div className="flex flex-col w-full content-center items-center justify-center">
               <div className="flex flex-col justify-center items-center content-center mt-10 w-full">
@@ -53,11 +53,18 @@ const SIgnUp = () => {
               </div>
               <div className="flex flex-col w-full content-center items-center justify-center mt-10 w-full">
                 <div className="flex justify-start w-2/3">
-                  <label htmlFor="password" className=' text-[#d9d9D9]'>Password</label></div>
+                  <label htmlFor="password" className=' text-[#d9d9D9]'>Password</label>
+                </div>
                 <input type="password" name='password' id='password' className='bg-white rounded-lg h-10 w-2/3 text-black px-2' />
               </div>
               <div className="flex justify-end w-2/3">
-                <p  className='text-xs mt-2 text-[#D9D9D9] underline '>password must be at least 8 characters long</p>
+                <p className='text-xs mt-2 text-[#D9D9D9] underline '>password must be at least 8 characters long</p>
+              </div>
+              <div className="flex flex-col w-full content-center items-center justify-center mt-3 w-full">
+                <div className="flex justify-start w-2/3">
+                  <label htmlFor="password" className=' text-[#d9d9D9]'>Confirm Password</label>
+                </div>
+                <input type="password" name='password' id='password' className='bg-white rounded-lg h-10 w-2/3 text-black px-2' />
               </div>
 
             </div>
