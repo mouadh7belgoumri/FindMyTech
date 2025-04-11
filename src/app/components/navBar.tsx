@@ -17,7 +17,7 @@ function classNames(...classes : string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function NavBar() {
   return (
     <Disclosure as="nav" className="bg-gradient-to-r from-[#010101] to-[#001A2D]">
       <div className="mx-auto w-full px-4">
