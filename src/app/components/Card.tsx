@@ -6,13 +6,13 @@ export default function Card() {
   return (
     <>
       
-        <div className='flex flex-col card  bg-[#c9bcbb80]  bg-opacity-40 rounded-2xl justify-start items-start  '>
+        <div className='inline-flex m-1 flex-col card  bg-[#c9bcbb80]  bg-opacity-40 rounded-2xl justify-start items-start  '>
           <Image alt='' src={Placeholdedr_image} className=' rounded-3xl p-3 ' />
           <div className="flex flex-col justify-around items start  text-black  ml-3">
             <p className="card-text bg-white p-1 px-2 rounded-lg">computer component</p>
 
           </div>
-          <div className="flex flex-row justify-between px-4 items-center w-full  ">
+          <div className="flex flex-row justify-between pl-4 pr-1 items-center w-full  ">
             <h1 className='text-black mt-2  text-xl card-title  '>Product name</h1>
             <div className='text-black'>
               <p className='inline-block text-center align-middle mt-2'>4.8 </p>
