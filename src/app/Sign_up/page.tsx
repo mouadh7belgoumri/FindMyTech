@@ -71,7 +71,7 @@ const SignUp = () => {
           <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center w-full h-full content-center rounded-lg">
             <div className='leading-10'>
               <h1 className='text-5xl font-[700] font-Poppins text-center'>hello user</h1>
-              <p className="text-l text-center font text-center">please enter your details</p>
+              <p className="text-l font text-center">please enter your details</p>
             </div>
             <div className='flex flex-col xl:flex-row justify-around w-3/4'>
               <div className='flex flex-col items-center justify-start'>
@@ -93,7 +93,7 @@ const SignUp = () => {
                 </div>
                 <input type="email" name='email' id='email' className='bg-white rounded-lg h-10  w-2/3 text-black px-2' />
               </div>
-              <div className="flex flex-col w-full content-center items-center justify-center mt-10 w-full">
+              <div className="flex flex-col  content-center items-center justify-center mt-10 w-full">
                 <div className="flex justify-start w-2/3">
                   <label htmlFor="password" className=' text-[#d9d9D9]'>Password</label>
                 </div>
@@ -102,7 +102,7 @@ const SignUp = () => {
               <div className="flex justify-end w-2/3">
                 <p className='text-xs mt-2 text-[#D9D9D9] underline '>password must be at least 8 characters long</p>
               </div>
-              <div className="flex flex-col w-full content-center items-center justify-center mt-3 w-full">
+              <div className="flex flex-col  content-center items-center justify-center mt-3 w-full">
                 <div className="flex justify-start w-2/3">
                   <label htmlFor="confirm_password" className=' text-[#d9d9D9]'>Confirm Password</label>
                 </div>
