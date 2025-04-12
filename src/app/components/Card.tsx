@@ -5,8 +5,8 @@ import star from '../assets/images/Card/star.svg'
 export default function Card() {
   return (
     <>
-      <div className="flex  justify-center items-center content-center h-screen bg-red-200 ">
-        <div className='flex flex-col card  bg-[#c9bcbb80]  bg-opacity-40 rounded-2xl justify-start items-start absolute '>
+      
+        <div className='flex flex-col card  bg-[#c9bcbb80]  bg-opacity-40 rounded-2xl justify-start items-start  '>
           <Image alt='' src={Placeholdedr_image} className=' rounded-3xl p-3 ' />
           <div className="flex flex-col justify-around items start  text-black  ml-3">
             <p className="card-text bg-white p-1 px-2 rounded-lg">computer component</p>
@@ -28,7 +28,7 @@ export default function Card() {
           </div>
         </div>
 
-      </div>
+      
 
     </>
   )
