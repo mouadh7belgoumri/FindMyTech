@@ -1,4 +1,4 @@
-// import Link from 'next/link'
+import Link from 'next/link'
 // import React from 'react'
 // import NavBar from './components/navBar'
 // import Hero from './components/Hero'
@@ -16,11 +16,13 @@ const Home = () => {
       {/* <NavBar /> */}
       {/* <Hero /> */}
       {/* <Feature /> */}
+      <Card/>
       
       
 
-      {/* <Link href={'/Sign_up'}>Sign up</Link>
-      <Link href={'/Sign_in'}>Sign in </Link> */}
+      <Link href={'/Sign_up'}>Sign up</Link>
+      <Link href={'/Sign_in'}>Sign in </Link>
+      <Link href={'/reset_password'}>reset password</Link>
     </div>
   )
 }

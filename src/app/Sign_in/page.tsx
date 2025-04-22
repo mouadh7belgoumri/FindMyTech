@@ -37,6 +37,7 @@ const SignIn = () => {
 
             if (response.ok) {
                 alert('Sign in successful!');
+                const data = await response.json();
                 console.log('Sign in successful!', data.token);
             } else {
                 alert('Sign in failed. Please try again.');
@@ -89,9 +90,9 @@ const SignIn = () => {
                                     />
                                 </div>
                                 <div className="flex justify-end w-2/3">
-                                    <a href="/forgot-password" className="text-xs mt-2 text-[#D9D9D9] underline">
+                                    <Link href="/forgot_password" className="text-xs mt-2 text-[#D9D9D9] underline">
                                         Forgot password?
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <button
