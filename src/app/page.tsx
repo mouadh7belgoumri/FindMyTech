@@ -1,22 +1,19 @@
 import Link from 'next/link'
-// import React from 'react'
-// import NavBar from './components/navBar'
-// import Hero from './components/Hero'
+
+
+
 import Card from './components/Card'
 
-// import Footer from './components/Footer'
-// import SignUp from './Sign up/page'
-// import SignIn from './components/Sign in/page'
+
+
+
 import Feature from './components/Feature'
-// import Card from './components/Card'
+
 
 const Home = () => {
   return (
     <div className='flex flex-wrap justify-center'>
-      {/* <NavBar /> */}
-      {/* <Hero /> */}
-      {/* <Feature /> */}
-      <Card/>
+      
       
       
 
