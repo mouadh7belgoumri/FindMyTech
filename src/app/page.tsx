@@ -1,27 +1,28 @@
-import Link from 'next/link'
+import { getProducts, getHighlights, getBlogs, getCategories } from "@/lib"
+import BannerCategories from "@/components/ui/BannerCategories"
+import Blog from "@/components/ui/Blog"
+import Categories from "@/components/ui/Categories"
+import DiscountBanner from "@/components/ui/DiscountBanner"
+import Highlights from "@/components/ui/Highlights"
+import HomeBanner from "@/components/ui/HomeBanner"
+import ProductList from "@/components/ui/ProductList"
 
+export default async function Home() {
+  // Server component data fetching
+  const products = await getProducts()
+  const highlights = await getHighlights()
+  const blogs = await getBlogs()
+  const categories = await getCategories()
 
-
-import Card from './components/Card'
-
-
-
-
-import Feature from './components/Feature'
-
-
-const Home = () => {
   return (
-    <div className='flex flex-wrap justify-center'>
-      
-      
-      
-
-      <Link href={'/Sign_up'}>Sign up</Link>
-      <Link href={'/Sign_in'}>Sign in </Link>
-      <Link href={'/reset_password'}>reset password</Link>
+    <div>
+      <BannerCategories initialCategories={categories} />
+      <HomeBanner />
+      <Highlights initialHighlights={highlights} />
+      <Categories initialCategories={categories} />
+      <ProductList products={products?.data || []} />
+      <DiscountBanner />
+      <Blog initialBlogs={blogs} />
     </div>
   )
 }
-
-export default Home
