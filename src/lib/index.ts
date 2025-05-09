@@ -1,14 +1,15 @@
 // Data fetching utility for client components
 export async function getData(endpoint: string) {
   try {
-    const response = await fetch(endpoint)
+    console.log("Fetching data from endpoint:", endpoint); // Debugging
+    const response = await fetch(endpoint);
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`)
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    return await response.json()
+    return await response.json();
   } catch (error) {
-    console.error("Error fetching data:", error)
-    throw error
+    console.error("Error fetching data:", error);
+    throw error;
   }
 }
 

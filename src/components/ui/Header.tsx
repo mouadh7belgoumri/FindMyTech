@@ -25,6 +25,9 @@ interface ProductProps {
   name: string
   image: string
   category: string
+  regularPrice: number
+  discountedPrice: number
+  isNew: boolean
   [key: string]: any
 }
 
@@ -42,7 +45,7 @@ const Header = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await getData("http://localhost:8000/products")
+        const data = await getData("http://localhost:3000/api/products")
         setProducts(data?.data || [])
       } catch (error) {
         console.error("Error fetching products:", error)
@@ -54,7 +57,7 @@ const Header = () => {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const endpoint = "http://localhost:8000/categories"
+      const endpoint = "http://localhost:3000/api/categories"
       try {
         const data = await getData(endpoint)
         setCategories(data)

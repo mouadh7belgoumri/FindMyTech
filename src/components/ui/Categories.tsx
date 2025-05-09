@@ -28,7 +28,7 @@ const Categories = ({ initialCategories = [] }: CategoriesComponentProps) => {
     }
 
     const fetchData = async () => {
-      const endpoint = "/api/categories"
+      const endpoint = "/app/api/category"
       try {
         const data = await getData(endpoint)
         setCategories(data)
