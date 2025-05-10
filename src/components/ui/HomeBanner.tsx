@@ -5,8 +5,8 @@ import Image from "next/image"
 const HomeBanner = () => {
   return (
     <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
-      <Image src="/images/homeBanner.jpg" alt="Mi Air Purifier" fill className="object-cover" priority />
-      <div className="absolute inset-0 bg-black bg-opacity-40">
+      <Image src="/images/homeBanner.jpg" alt="test" fill className="object-cover" priority  />
+      <div className="absolute inset-0  bg-opacity-50">
         <Container className="h-full flex flex-col justify-center gap-6 text-white">
           <h2 className="text-4xl md:text-6xl font-bold">Mi Air Purifier</h2>
           <p className="text-lg font-semibold max-w-[350px]">
