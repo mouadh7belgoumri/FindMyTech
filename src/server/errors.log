@@ -1,0 +1,5 @@
+[27-Apr-2025 18:56:21 Europe/Berlin] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\Sys-Authentification-en-PHP-MySQL-main\config.php on line 20
+[27-Apr-2025 18:56:21 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\Sys-Authentification-en-PHP-MySQL-main\config.php on line 22
+[27-Apr-2025 18:56:32 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\Sys-Authentification-en-PHP-MySQL-main\compare_products.php on line 5
+[27-Apr-2025 18:56:40 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\Sys-Authentification-en-PHP-MySQL-main\compare_products.php on line 5
+[27-Apr-2025 18:56:40 Europe/Berlin] Comparison Error: API key not configured
