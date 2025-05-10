@@ -10,7 +10,7 @@ import { products, highlightsProducts, categories as mockCategories } from "@/li
 
 export default async function Home() {
   // Server component data fetching with fallbacks
-  let productsData = { data: [] }
+  let productsData: { data: typeof products } = { data: [] }
   let highlightsData = []
   let blogsData = []
   let categoriesData = []
