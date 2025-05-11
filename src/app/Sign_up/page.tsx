@@ -11,46 +11,61 @@ export default function SignUpPage() {
   const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setLoading(true)
+    e.preventDefault();
+    setLoading(true);
 
     const formData = {
       email: (e.target as any).email.value,
       password: (e.target as any).password.value,
       confirmPassword: (e.target as any).confirm_password.value,
-      role: (e.target as any).role.value,
-    }
+      firstName: (e.target as any).first_name.value,
+      secondName: (e.target as any).second_name.value,
+    };
 
+    // Validation
     if (!formData.email.includes("@")) {
-      alert("Please enter a valid email address.")
-      setLoading(false)
-      return
+      alert("Please enter a valid email address.");
+      setLoading(false);
+      return;
     }
 
     if (formData.password.length < 8) {
-      alert("Password must be at least 8 characters long.")
-      setLoading(false)
-      return
+      alert("Password must be at least 8 characters long.");
+      setLoading(false);
+      return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match.")
-      setLoading(false)
-      return
+      alert("Passwords do not match.");
+      setLoading(false);
+      return;
     }
 
     try {
-      // In a real app, we would call an API endpoint
-      // For now, we'll just simulate a successful response
-      setTimeout(() => {
-        alert("Sign up successful!")
-        router.push("/Sign_in")
-      }, 1500)
+      // Send data to the endpoint
+      const response = await fetch("http://localhost:8012/server/register.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+          confirm_password: formData.confirmPassword,
+          first_name: formData.firstName,
+          last_name: formData.secondName,
+        }),
+      });
+   
+      
+   console.log(response);
+
+    
     } catch (error) {
-      console.error(error)
-      alert("An error occurred. Please try again.")
+      console.error("Error during sign up:", error);
+      alert("An error occurred. Please try again.");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
@@ -100,14 +115,14 @@ export default function SignUpPage() {
               </div>
               <div className="flex flex-col items-center justify-start ">
                 <div className="flex justify-start w-7/11">
-                  <label htmlFor="second_name" className="text-[#d9d9D9]">
+                  <label htmlFor="last_name" className="text-[#d9d9D9]">
                     second name
                   </label>
                 </div>
                 <input
                   type="text"
                   id="second_name"
-                  name="secon_name"
+                  name="second_name"
                   className="bg-white rounded-lg w-7/11 h-8 text-black px-2"
                 />
               </div>
@@ -155,14 +170,7 @@ export default function SignUpPage() {
                   className="bg-white rounded-lg h-10 w-2/3 text-black px-2"
                 />
               </div>
-              <div className="flex flex-col items-center content-center justify-center mt-5">
-                <div className="flex justify-start w-35 ml-1">
-                  <label htmlFor="role" className="text-[#D9D9D9]">
-                    register as
-                  </label>
-                </div>
-                
-              </div>
+             
             </div>
             <button
               type="submit"

@@ -40,7 +40,7 @@ const Header = () => {
   const pathname = usePathname()
 
   // Logo placeholder
-  const logo = "/placeholder.svg?height=80&width=176"
+  const logo = "/logo.webp"
 
   useEffect(() => {
     const fetchProducts = async () => {
