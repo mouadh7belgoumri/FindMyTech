@@ -6,6 +6,9 @@ import DiscountBanner from "@/components/ui/DiscountBanner"
 import Highlights from "@/components/ui/Highlights"
 import HomeBanner from "@/components/ui/HomeBanner"
 import ProductList from "@/components/ui/ProductList"
+import Header from "@/components/ui/Header"
+import Footer from "@/components/ui/Footer"
+import { Toaster } from "react-hot-toast"
 
 export default async function Home() {
   // Server component data fetching
@@ -16,6 +19,7 @@ export default async function Home() {
 
   return (
     <div>
+      <Header />
       <BannerCategories initialCategories={categories} />
       <HomeBanner />
       <Highlights initialHighlights={highlights} />
@@ -23,6 +27,19 @@ export default async function Home() {
       <ProductList products={products?.data || []} />
       <DiscountBanner />
       <Blog initialBlogs={blogs} />
+      <Footer />
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+        gutter={8}
+        containerClassName=""
+        toastOptions={{
+          style: {
+            backgroundColor: "black",
+            color: "white",
+          },
+        }}
+      />
     </div>
   )
 }

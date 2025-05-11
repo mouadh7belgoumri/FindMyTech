@@ -161,10 +161,7 @@ export default function SignUpPage() {
                     register as
                   </label>
                 </div>
-                <select name="role" id="role" className="bg-white rounded-lg w-35 h-8 text-black px-2">
-                  <option value="buyer">buyer</option>
-                  <option value="seller">seller</option>
-                </select>
+                
               </div>
             </div>
             <button

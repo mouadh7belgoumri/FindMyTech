@@ -18,20 +18,23 @@ const page = () => {
         };
 
         try {
-            const response = await fetch('/api/products', {
+            const response = await fetch('http://localhost:8012/server/add_product.php', {
                 method: 'POST',
                 body: JSON.stringify(productData),
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
+            console.log(response);
 
             if (!response.ok) {
+                console.log(response);
+                
                 throw new Error('Failed to add product');
             }
 
             alert('Product added successfully!');
-            event.currentTarget.reset();
+            // event.currentTarget.reset();
         } catch (error) {
             console.error(error);
             alert('An error occurred while adding the product.');

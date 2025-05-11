@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     const extractingItems = items.map((item: any) => ({
       quantity: item.quantity,
       price_data: {
-        currency: "usd",
+        currency: "dzd",
         unit_amount: item.discountedPrice * 100,
         product_data: {
           name: item.name,
