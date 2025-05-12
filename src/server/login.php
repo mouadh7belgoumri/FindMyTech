@@ -6,8 +6,10 @@ require 'config.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+header('Content-Type: application/json');
+
 if (isset($_SESSION['user_id'])) {
-    header("Location: index.php");
+    echo json_encode(['success' => true, 'redirect' => 'index.php', 'message' => 'Already logged in']);
     exit();
 }
 
@@ -15,14 +17,23 @@ if (!isset($_SESSION['login_attempts'])) {
     $_SESSION['login_attempts'] = 0;
 }
 
-$login_error = '';
+// Check if the request contains JSON data
+$json_data = json_decode(file_get_contents('php://input'), true);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_SESSION['login_attempts'] >= 5) {
-        $login_error = "Too many login attempts. Try again later.";
+        http_response_code(429); // Too Many Requests
+        echo json_encode(['success' => false, 'message' => 'Too many login attempts. Try again later.']);
+        exit();
     } else {
-        $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
-        $password = trim($_POST['password']);
+        // Get data from JSON or POST based on what's available
+        $email = isset($json_data['email']) 
+            ? filter_var(trim($json_data['email']), FILTER_VALIDATE_EMAIL) 
+            : (isset($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL) : null);
+            
+        $password = isset($json_data['password']) 
+            ? trim($json_data['password']) 
+            : (isset($_POST['password']) ? trim($_POST['password']) : null);
 
         if ($email && $password) {
             $stmt = $conn->prepare("SELECT id, First_Name, Last_Name, password FROM users WHERE email = ?");
@@ -36,18 +47,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['login_attempts'] = 0;
 
                 if ($email === 'k_houari@estin.dz') {
-                    header("Location: admin.php");
+                    echo json_encode(['success' => true, 'redirect' => '/admin_panel', 'message' => 'Admin login successful']);
                     exit();
                 } else {
-                    header("Location: index.php");
+                    echo json_encode(['success' => true, 'redirect' => '/profile', 'message' => 'Login successful']);
                     exit();
                 }
             } else {
                 $_SESSION['login_attempts']++;
-                $login_error = "Incorrect email or password.";
+                http_response_code(401); // Unauthorized
+                echo json_encode(['success' => false, 'message' => 'Incorrect email or password.']);
+                exit();
             }
         } else {
-            $login_error = "Please fill out all fields correctly.";
+            http_response_code(400); // Bad Request
+            echo json_encode(['success' => false, 'message' => 'Please fill out all fields correctly.']);
+            exit();
         }
     }
+} else {
+    http_response_code(405); // Method Not Allowed
+    echo json_encode(['success' => false, 'message' => 'Invalid request method']);
+    exit();
 }
