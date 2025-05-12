@@ -1,5 +1,4 @@
 <?php
-include 'cors.php';
 session_start();
 
 // Inclure le fichier de connexion à la base de données en utilisant PDO
@@ -123,3 +122,71 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['password'], $_POST['t
         error_log("Erreur de préparation SQL (vérification lien) : " . print_r($conn->errorInfo(), true));
     }
 }
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Réinitialiser le mot de passe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#212026]">
+    <div class="h-screen flex max-md:flex-col justify-center items-center content-center w-full">
+        <div class="flex flex-col h-2/3 w-1/3 max-md:h-fit max-md:p-5 max-md:w-full bg-black shadow-[0_0_15px_black]">
+            <?php if ($showForm): ?>
+                <form method="POST" class="flex flex-col items-center justify-center w-full h-full content-center rounded-lg">
+                    <div class="leading-10">
+                        <h1 class="text-5xl font-[700] font-Poppins text-center">Réinitialiser le mot de passe</h1>
+                        <p class="text-l text-center font text-center">Entrez un nouveau mot de passe</p>
+                    </div>
+
+                    <div class="flex flex-col w-full content-center items-center justify-center">
+                        <div class="flex flex-col justify-center items-center content-center mt-10 w-full">
+                            <div class="flex justify-start w-2/3">
+                                <label for="password" class="text-[#d9d9D9]">Nouveau mot de passe</label>
+                            </div>
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
+                                aria-label="Nouveau mot de passe"
+                                class="bg-white rounded-lg h-10 w-2/3 text-black px-2"
+                                required
+                            />
+                            <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="mt-10 w-fit bg-[#717171] rounded-md p-1 px-20 hover:cursor-pointer hover:bg-[#464646]">
+                        Changer le mot de passe
+                    </button>
+                </form>
+            <?php endif; ?>
+
+            <?php if ($error): ?>
+                <p class="text-red-500 mt-4 text-center"><?= htmlspecialchars($error) ?></p>
+            <?php elseif ($success): ?>
+                <p class="text-green-500 mt-4 text-center"><?= htmlspecialchars($success) ?></p>
+                <div class="text-center mt-4">
+                    <a href="login.php" class="text-blue-400 underline">Retour à la connexion</a>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <div class="flex h-2/3 w-1/3 flex-col max-md:h-1/2 max-md:p-5 max-md:w-full content-center items-center justify-between bg-[#717171] shadow-[0_0_15px_black]">
+            <h1 class="mt-8 text-4xl font-serif">
+                <span class="text-[#2eabff] capitalize">find</span>My<span class="text-[#2eabff] capitalize inline-block">tech</span>
+            </h1>
+            <h1 class="text-5xl font-[700] font-Poppins text-center">Bienvenue</h1>
+            <p class="text-2xl font text-center w-3/4">Réinitialisez votre mot de passe en toute sécurité pour continuer à utiliser votre compte.</p>
+            <a href="login.php">
+                <button class="border-btn w-fit p-2 px-8 cursor-pointer">Se connecter</button>
+            </a>
+            <div class="h-1/4"></div>
+        </div>
+    </div>
+</body>
+</html>

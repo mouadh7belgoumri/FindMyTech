@@ -1,12 +1,9 @@
 <?php
-include 'cors.php';
-class Gemini
-{
+class Gemini {
     private $api_key = 'AIzaSyBM2F5aAbvfnwoavHqQ6GhQN4ff7imri_g'; // Clé API Gemini
 
-    public function generate($prompt)
-    {
-        $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' . $this->api_key;
+    public function generate($prompt) {
+   $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' . $this->api_key;
 
 
 

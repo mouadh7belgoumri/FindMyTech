@@ -1,5 +1,4 @@
 <?php
-include 'cors.php';
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_id']) && isset($_POST['quantity'])) {
@@ -14,3 +13,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_id']) && isse
 
 header('Location: cart.php');
 exit();
+?>

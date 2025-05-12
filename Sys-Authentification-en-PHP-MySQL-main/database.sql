@@ -131,8 +131,6 @@ CREATE TABLE commande_details (
   product_id INT(11) NOT NULL,
   quantite INT(11) NOT NULL
 );
-
-
 CREATE TABLE IF NOT EXISTS panier (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT NOT NULL,
@@ -144,5 +142,7 @@ CREATE TABLE IF NOT EXISTS panier (
   CHECK (quantite > 0),
   UNIQUE KEY unique_cart_item (user_id, product_type, product_id) COMMENT 'Empêche les doublons pour un même produit'
 );
+
+
 
 

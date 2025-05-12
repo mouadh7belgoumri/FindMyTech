@@ -1,5 +1,4 @@
 <?php
-include 'cors.php';
 session_start();
 include 'config.php';
 include 'Gemini.php'; // Fichier de la classe Gemini
@@ -36,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $gemini = new Gemini();
 
             $comparisonResult = $gemini->generate($prompt);
+
         } else {
             $comparisonResult = "Produits non trouvés.";
         }
@@ -43,3 +43,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $comparisonResult = "Veuillez choisir deux produits différents.";
     }
 }
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparer des Produits</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-4">Comparer des Produits</h1>
+
+    <form method="POST" class="my-4">
+        <div class="mb-3">
+            <label for="product1" class="form-label">Produit 1 :</label>
+            <select name="product1" id="product1" class="form-select" required>
+                <option value="">-- Choisir un produit --</option>
+                <?php foreach ($products as $product): ?>
+                    <option value="<?= $product['id'] ?>"><?= htmlspecialchars($product['name']) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="product2" class="form-label">Produit 2 :</label>
+            <select name="product2" id="product2" class="form-select" required>
+                <option value="">-- Choisir un produit --</option>
+                <?php foreach ($products as $product): ?>
+                    <option value="<?= $product['id'] ?>"><?= htmlspecialchars($product['name']) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Comparer</button>
+    </form>
+
+    <?php if (!empty($comparisonResult)): ?>
+        <div class="alert alert-info mt-4">
+            <h4>Résultat de la comparaison :</h4>
+            <p><?= nl2br(htmlspecialchars($comparisonResult)) ?></p>
+        </div>
+    <?php endif; ?>
+</div>
+</body>
+</html>
