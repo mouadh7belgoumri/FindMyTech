@@ -132,20 +132,22 @@ const Header = () => {
         )}
 
         <div className="flex items-center gap-x-6 text-2xl">
-          <Link href="/profile">
-            {currentUser ? (
+          {currentUser ? (
+            <Link href="/profile">
               <div className="relative w-10 h-10">
                 <Image
-                  src={currentUser?.avatar || "/placeholder.svg"}
+                  src={currentUser?.avatar || "/placeholder-user.jpg"}
                   alt="user-avatar"
                   fill
                   className="rounded-full object-cover"
                 />
               </div>
-            ) : (
+            </Link>
+          ) : (
+            <Link href="/Sign_in">
               <FiUser className="hover:text-skyText duration-200 cursor-pointer" />
-            )}
-          </Link>
+            </Link>
+          )}
           <Link href="/favorite" className="relative block">
             
             

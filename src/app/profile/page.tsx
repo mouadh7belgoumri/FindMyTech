@@ -23,9 +23,9 @@ export default function ProfilePage() {
           // For demo purposes, let's create a mock user
           // In a real app, this would come from an API or auth service
           const mockUser = currentUser || {
-            firstName: "John",
-            lastName: "Doe",
-            email: "john.doe@example.com",
+            firstName: "Mouadh",
+            lastName: "Belgoumri",
+            email: "mo3edwahrani@gmail.com",
             avatar: "/placeholder.svg?height=80&width=80",
           }
 
